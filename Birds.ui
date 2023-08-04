@@ -1,0 +1,528 @@
+{
+    "ClientConfiguration": {
+        "ConfigurationName": "Birds Project",
+        "ConfigurationDescription": "Birds book.",
+        "ConfigurationVersion": "1.0",
+        "Processes": [
+            {
+                "type": "Process",
+                "ProcessName": "Birds",
+                "PlanFactHeader": "План-факт",
+                "DefineOnBackPressed": true,
+                "hidden": false,
+                "login_screen": true,
+                "SC": false,
+                "Operations": [
+                    {
+                        "type": "Operation",
+                        "Name": "Menu",
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": true,
+                        "handleKeyUp": false,
+                        "noConfirmation": true,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "send_when_opened": true,
+                        "onlineOnInput": false,
+                        "DefOnlineOnCreate": "",
+                        "DefOnlineOnInput": "",
+                        "DefOnCreate": "menu_on_start",
+                        "DefOnInput": "menu_input",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Actions Menu",
+                                        "Variable": "",
+                                        "TextBold": true,
+                                        "TextSize": "40"
+                                    },
+                                    {
+                                        "type": "CButtons",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Birds;Add;Seen",
+                                        "Variable": "menu"
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            }
+                        ],
+                        "onlineOnAfterStart": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "menu_on_start",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "menu_on_input",
+                                "postExecute": ""
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Birds",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "wrap_content",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Birds list",
+                                        "Variable": "",
+                                        "TextBold": true,
+                                        "TextSize": "40"
+                                    },
+                                    {
+                                        "type": "CardsLayout",
+                                        "height": "match_parent",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@birds_list",
+                                        "Variable": ""
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": true,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnInput": false,
+                        "DefOnInput": "",
+                        "DefOnCreate": "",
+                        "send_when_opened": false,
+                        "onlineOnAfterStart": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "birds_list_on_start",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "birds_list_on_input",
+                                "postExecute": ""
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Add",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "match_parent",
+                                "width": "match_parent",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Add bird",
+                                        "Variable": "",
+                                        "TextSize": "40",
+                                        "TextBold": true
+                                    },
+                                    {
+                                        "type": "ModernEditText",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@fill_name",
+                                        "Variable": "name"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Description",
+                                        "Variable": "",
+                                        "TextBold": false
+                                    },
+                                    {
+                                        "type": "MultilineText",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "",
+                                        "Variable": "description"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Feather color",
+                                        "Variable": "",
+                                        "TextBold": false
+                                    },
+                                    {
+                                        "type": "SpinnerLayout",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@colors",
+                                        "Variable": "color"
+                                    },
+                                    {
+                                        "type": "Button",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Сохранить...",
+                                        "Variable": "btn_save",
+                                        "BackgroundColor": "#E4D00A"
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": "30"
+                            },
+                            {
+                                "Value": "#f2ed",
+                                "Variable": "menu_del",
+                                "type": "MenuItem"
+                            },
+                            {
+                                "Value": "@photoGallery",
+                                "Variable": "photoGallery",
+                                "type": "HorizontalGallery"
+                            },
+                            {
+                                "Value": "",
+                                "Variable": "photo",
+                                "type": "photo"
+                            },
+                            {
+                                "Value": "",
+                                "Variable": "photo",
+                                "type": "photoGallery"
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": true,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnInput": false,
+                        "DefOnCreate": "",
+                        "DefOnInput": "",
+                        "noConfirmation": true,
+                        "send_when_opened": false,
+                        "onlineOnAfterStart": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "add_bird_on_start",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "add_bird_on_input",
+                                "postExecute": ""
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Detail",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "@picture",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "wrap_content",
+                                "width": "wrap_content",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "LinearLayout",
+                                        "height": "wrap_content",
+                                        "width": "wrap_content",
+                                        "weight": "0",
+                                        "Value": "",
+                                        "Variable": "",
+                                        "orientation": "horizontal",
+                                        "Elements": [
+                                            {
+                                                "type": "TextView",
+                                                "height": "wrap_content",
+                                                "width": "wrap_content",
+                                                "weight": "0",
+                                                "Value": "@name",
+                                                "Variable": "",
+                                                "TextSize": "37",
+                                                "TextBold": true
+                                            },
+                                            {
+                                                "type": "Button",
+                                                "height": "wrap_content",
+                                                "width": "wrap_content",
+                                                "weight": "0",
+                                                "Value": "See",
+                                                "Variable": "btn_see"
+                                            }
+                                        ],
+                                        "BackgroundColor": "",
+                                        "StrokeWidth": "",
+                                        "Padding": ""
+                                    },
+                                    {
+                                        "type": "Picture",
+                                        "height": "wrap_content",
+                                        "width": "wrap_content",
+                                        "weight": "0",
+                                        "Value": "@picture",
+                                        "Variable": ""
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Description",
+                                        "Variable": "",
+                                        "TextSize": "24",
+                                        "TextBold": true
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "wrap_content",
+                                        "weight": "0",
+                                        "Value": "@description",
+                                        "Variable": "",
+                                        "TextSize": "20"
+                                    },
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@feather_color",
+                                        "Variable": "",
+                                        "gravity_horizontal": "left",
+                                        "TextSize": "24"
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnAfterStart": false,
+                        "onlineOnInput": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "bird_detail_on_start",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "bird_detail_on_input",
+                                "postExecute": ""
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Seen",
+                        "type": "Operation",
+                        "Elements": [
+                            {
+                                "Value": "",
+                                "Variable": "",
+                                "type": "LinearLayout",
+                                "weight": "0",
+                                "height": "wrap_content",
+                                "width": "wrap_content",
+                                "orientation": "vertical",
+                                "Elements": [
+                                    {
+                                        "type": "TextView",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "Seen birds",
+                                        "Variable": "",
+                                        "TextBold": true,
+                                        "TextSize": "40"
+                                    },
+                                    {
+                                        "type": "TableLayout",
+                                        "height": "wrap_content",
+                                        "width": "match_parent",
+                                        "weight": "0",
+                                        "Value": "@seen_list",
+                                        "Variable": ""
+                                    }
+                                ],
+                                "BackgroundColor": "",
+                                "StrokeWidth": "",
+                                "Padding": ""
+                            }
+                        ],
+                        "Timer": false,
+                        "hideToolBarScreen": false,
+                        "noScroll": false,
+                        "handleKeyUp": false,
+                        "hideBottomBarScreen": true,
+                        "onlineOnStart": false,
+                        "onlineOnAfterStart": false,
+                        "onlineOnInput": false,
+                        "Handlers": [
+                            {
+                                "event": "onStart",
+                                "action": "run",
+                                "type": "python",
+                                "method": "seen_on_start",
+                                "postExecute": ""
+                            },
+                            {
+                                "event": "onInput",
+                                "action": "run",
+                                "type": "python",
+                                "method": "seen_on_input",
+                                "postExecute": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "ConfigurationSettings": {
+            "uid": "f164e78e7f8f480da045102a42812cdb"
+        },
+        "ConfigurationTags": "Py,off-line",
+        "RunPython": true,
+        "PyHandlers": "ZnJvbSBtZW51IGltcG9ydCBNZW51CmZyb20gYmlyZHMgaW1wb3J0IEJpcmRzCmZyb20gZGV0YWlsIGltcG9ydCBEZXRhaWwKZnJvbSBhZGQgaW1wb3J0IEFkZApmcm9tIGhhc2htYXAgaW1wb3J0IEhhc2hNYXAKZnJvbSBzZWVuIGltcG9ydCBTZWVuCgoKIyBtYWluIG1lbnUKZGVmIG1lbnVfb25fc3RhcnQoaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICByZXR1cm4gTWVudS5vbl9zdGFydChoYXNoTWFwLCBfZmlsZXMsIF9kYXRhKQoKCmRlZiBtZW51X29uX2lucHV0KGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgcmV0dXJuIE1lbnUub25faW5wdXQoaGFzaE1hcCwgX2ZpbGVzLCBfZGF0YSkKCgojIGJpcmRzIGxpc3QKZGVmIGJpcmRzX2xpc3Rfb25fc3RhcnQoaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICByZXR1cm4gQmlyZHMub25fc3RhcnQoaGFzaE1hcCwgX2ZpbGVzLCBfZGF0YSkKCgpkZWYgYmlyZHNfbGlzdF9vbl9pbnB1dChoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgIHJldHVybiBCaXJkcy5vbl9pbnB1dChoYXNoTWFwLCBfZmlsZXMsIF9kYXRhKQoKCiMgYWRkIGJpcmQKZGVmIGFkZF9iaXJkX29uX3N0YXJ0KGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgcmV0dXJuIEFkZC5vbl9zdGFydChoYXNoTWFwLCBfZmlsZXMsIF9kYXRhKQoKCmRlZiBhZGRfYmlyZF9vbl9pbnB1dChoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgIHJldHVybiBBZGQub25faW5wdXQoaGFzaE1hcCwgX2ZpbGVzLCBfZGF0YSkKCgojIGJpcmQgZGV0YWlsCmRlZiBiaXJkX2RldGFpbF9vbl9zdGFydChoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgIHJldHVybiBEZXRhaWwub25fc3RhcnQoaGFzaE1hcCwgX2ZpbGVzLCBfZGF0YSkKCgpkZWYgYmlyZF9kZXRhaWxfb25faW5wdXQoaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICByZXR1cm4gRGV0YWlsLm9uX2lucHV0KGhhc2hNYXAsIF9maWxlcywgX2RhdGEpCgoKIyBzZWVuIGJpcmRzIGxpc3QKZGVmIHNlZW5fb25fc3RhcnQoaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICByZXR1cm4gU2Vlbi5vbl9zdGFydChoYXNoTWFwLCBfZmlsZXMsIF9kYXRhKQoKCmRlZiBzZWVuX29uX2lucHV0KGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgcmV0dXJuIFNlZW4ub25faW5wdXQoaGFzaE1hcCwgX2ZpbGVzLCBfZGF0YSkK",
+        "PyFiles": [
+            {
+                "PyFileKey": "db",
+                "PyFileData": "ZnJvbSBkYXRldGltZSBpbXBvcnQgZGF0ZXRpbWUKZnJvbSBwb255Lm9ybSBpbXBvcnQgRGF0YWJhc2UsIFJlcXVpcmVkLCBQcmltYXJ5S2V5LCBjb21taXQsIGRiX3Nlc3Npb24sIE9wdGlvbmFsLCBTZXQKZnJvbSB0eXBpbmcgaW1wb3J0IFR5cGUKZnJvbSB1dWlkIGltcG9ydCB1dWlkNAoKZnJvbSBiYXNlIGltcG9ydCBCYXNlUmVwb3NpdG9yeQoKCkNPTE9SUyA9IHsKICAgICJvcmFuZ2UiOiAiI2YwN2ExOSIsCiAgICAiYnJvd24iOiAiIzg5NjQxNSIsCiAgICAiYmxhY2siOiAiIzAwMDAwMCIsCiAgICAid2hpdGUiOiAiI2ZmZmZmZiIsCiAgICAicmVkIjogIiNlNTM4MzgiLAogICAgImdyZXkiOiAiIzk4OTA5MCIsCgp9CgpkYiA9IERhdGFiYXNlKCkKCgpjbGFzcyBCaXJkKGRiLkVudGl0eSk6CiAgICAiIiJCaXJkIG1vZGVsLiIiIgogICAgaWQgPSBQcmltYXJ5S2V5KHN0ciwgZGVmYXVsdD1sYW1iZGE6IHN0cih1dWlkNCgpKSkKICAgIG5hbWUgPSBSZXF1aXJlZChzdHIpCiAgICBkZXNjcmlwdGlvbiA9IFJlcXVpcmVkKHN0cikKICAgIGZlYXRoZXJfY29sb3IgPSBSZXF1aXJlZChzdHIpCiAgICBzZWVuX2FjdHMgPSBTZXQoIlNlZW5BY3QiKQogICAgIyBwaWN0dXJlID0gT3B0aW9uYWwoc3RyKQoKCmNsYXNzIEJpcmRSZXBvc2l0b3J5KEJhc2VSZXBvc2l0b3J5KToKICAgICIiIkJpcmQgcmVwb3NpdG9yeSBjbGFzcy4iIiIKICAgIGVudGl0eTogVHlwZVtkYi5FbnRpdHldID0gQmlyZAoKICAgIEBjbGFzc21ldGhvZAogICAgQGRiX3Nlc3Npb24KICAgIGRlZiBjcmVhdGUoY2xzLCBuYW1lOiBzdHIsIGZlYXRoZXJfY29sb3I6IHN0ciwgZGVzY3JpcHRpb246IHN0ciwgcGljdHVyZT1Ob25lKSAtPiBkYi5FbnRpdHk6CiAgICAgICAgYmlyZCA9IGNscy5lbnRpdHkoCiAgICAgICAgICAgIG5hbWU9bmFtZSwKICAgICAgICAgICAgZmVhdGhlcl9jb2xvcj1mZWF0aGVyX2NvbG9yLAogICAgICAgICAgICBkZXNjcmlwdGlvbj1kZXNjcmlwdGlvbiwKCiAgICAgICAgKQogICAgICAgIGNvbW1pdCgpCiAgICAgICAgcmV0dXJuIGJpcmQKCgpjbGFzcyBTZWVuQWN0KGRiLkVudGl0eSk6CiAgICBpZCA9IFByaW1hcnlLZXkoc3RyLCBkZWZhdWx0PWxhbWJkYTogc3RyKHV1aWQ0KCkpKQogICAgYmlyZCA9IFJlcXVpcmVkKEJpcmQpCiAgICB0aW1lX3NlZW4gPSBSZXF1aXJlZChkYXRldGltZSwgZGVmYXVsdD1sYW1iZGE6IGRhdGV0aW1lLm5vdygpKQoKCmNsYXNzIFNlZW5BY3RSZXBvc2l0b3J5KEJhc2VSZXBvc2l0b3J5KToKICAgICIiIlNlZW4gYmlyZCBhY3QgcmVwb3NpdG9yeSBjbGFzcy4iIiIKICAgIGVudGl0eTogVHlwZVtkYi5FbnRpdHldID0gU2VlbkFjdAoKICAgIEBjbGFzc21ldGhvZAogICAgQGRiX3Nlc3Npb24KICAgIGRlZiBjcmVhdGUoY2xzLCBiaXJkX2lkOiBzdHIpIC0+IGRiLkVudGl0eToKICAgICAgICBzZWVuX2FjdCA9IGNscy5lbnRpdHkoYmlyZD1iaXJkX2lkKQogICAgICAgIGNvbW1pdCgpCiAgICAgICAgcmV0dXJuIHNlZW5fYWN0CgogICAgQGNsYXNzbWV0aG9kCiAgICBAZGJfc2Vzc2lvbgogICAgZGVmIGdldF9hY3RzX2J5X2JpcmQoY2xzLCBiaXJkX2lkOiBzdHIpIC0+IGRiLkVudGl0eToKICAgICAgICByZXR1cm4gY2xzLmVudGl0eS5zZWxlY3QobGFtYmRhIGFjdDogYWN0LmJpcmQgPT0gYmlyZF9pZCkKCgojIGJpbmcgZW5naW5lIGFuZCBjcmVhdGUgc2NoZW1hcwpkYi5iaW5kKCdzcWxpdGUnLCAnZGIzLnNxbGl0ZScsIGNyZWF0ZV9kYj1UcnVlKQpkYi5nZW5lcmF0ZV9tYXBwaW5nKGNyZWF0ZV90YWJsZXM9VHJ1ZSkK"
+            },
+            {
+                "PyFileKey": "hashmap",
+                "PyFileData": "Y2xhc3MgSGFzaE1hcDoKICAgICIiIkJhc2UgaGFzaCBtYXAgY2xhc3MuIiIiCiAgICBkZWYgZ2V0KHNlbGYsIGtleTogc3RyKSAtPiBzdHI6CiAgICAgICAgcGFzcwoKICAgIGRlZiBjb250YWluc0tleShzZWxmLCBrZXk6IHN0cikgLT4gYm9vbDoKICAgICAgICBwYXNzCgogICAgZGVmIHB1dChzZWxmLCBrZXk6IHN0ciwgdmFsdWU6IHN0cikgLT4gTm9uZToKICAgICAgICBwYXNzCgogICAgZGVmIHJlbW92ZShzZWxmLCBrZXk6IHN0cikgLT4gTm9uZToKICAgICAgICBwYXNzCg=="
+            },
+            {
+                "PyFileKey": "birds",
+                "PyFileData": "aW1wb3J0IGpzb24KCmZyb20gZGIgaW1wb3J0IEJpcmRSZXBvc2l0b3J5LCBDT0xPUlMsIFNlZW5BY3RSZXBvc2l0b3J5CmZyb20gaGFzaG1hcCBpbXBvcnQgSGFzaE1hcAoKCmNsYXNzIEJpcmRzOgogICAgIiIiQWxsIGJpcmRzIGxpc3QgdmlldyBzY3JlZW4uIiIiCgogICAgQGNsYXNzbWV0aG9kCiAgICBkZWYgb25fc3RhcnQoY2xzLCBoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgICAgICBiaXJkc19saXN0ID0gewogICAgICAgICAgICAiY3VzdG9tY2FyZHMiOiB7CiAgICAgICAgICAgICAgICAib3B0aW9ucyI6IHsKICAgICAgICAgICAgICAgICAgICAic2VhcmNoX2VuYWJsZWQiOiBUcnVlLAogICAgICAgICAgICAgICAgICAgICJzYXZlX3Bvc2l0aW9uIjogVHJ1ZQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJsYXlvdXQiOiB7CiAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiTGluZWFyTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAib3JpZW50YXRpb24iOiAidmVydGljYWwiLAogICAgICAgICAgICAgICAgICAgICJoZWlnaHQiOiAibWF0Y2hfcGFyZW50IiwKICAgICAgICAgICAgICAgICAgICAid2lkdGgiOiAibWF0Y2hfcGFyZW50IiwKICAgICAgICAgICAgICAgICAgICAid2VpZ2h0IjogIjAiLAogICAgICAgICAgICAgICAgICAgICJFbGVtZW50cyI6IFsKICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiTGluZWFyTGF5b3V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJvcmllbnRhdGlvbiI6ICJob3Jpem9udGFsIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJoZWlnaHQiOiAid3JhcF9jb250ZW50IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ3aWR0aCI6ICJtYXRjaF9wYXJlbnQiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIndlaWdodCI6ICIwIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJFbGVtZW50cyI6IFsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ0eXBlIjogIlBpY3R1cmUiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAic2hvd19ieV9jb25kaXRpb24iOiAiIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlZhbHVlIjogIkBwaWMiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiTm9SZWZyZXNoIjogRmFsc2UsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJkb2N1bWVudF90eXBlIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJtYXNrIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJWYXJpYWJsZSI6ICIiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dFNpemUiOiAiMTYiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dENvbG9yIjogIiNEQjcwOTMiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dEJvbGQiOiBUcnVlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dEl0YWxpYyI6IEZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQmFja2dyb3VuZENvbG9yIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ3aWR0aCI6ICI3NSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJoZWlnaHQiOiAiNzUiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAid2VpZ2h0IjogMAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAidHlwZSI6ICJMaW5lYXJMYXlvdXQiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAib3JpZW50YXRpb24iOiAidmVydGljYWwiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiaGVpZ2h0IjogIndyYXBfY29udGVudCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ3aWR0aCI6ICJtYXRjaF9wYXJlbnQiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAid2VpZ2h0IjogIjEiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiRWxlbWVudHMiOiBbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiVGV4dFZpZXciLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJzaG93X2J5X2NvbmRpdGlvbiI6ICIiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJWYWx1ZSI6ICJAbmFtZSIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIk5vUmVmcmVzaCI6IEZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJkb2N1bWVudF90eXBlIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIm1hc2siOiAiIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVmFyaWFibGUiOiAiIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dFNpemUiOiAiMjAiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ0eXBlIjogIlRleHRWaWV3IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAic2hvd19ieV9jb25kaXRpb24iOiAiIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVmFsdWUiOiAiQGZlYXRoZXJfY29sb3IiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJOb1JlZnJlc2giOiBGYWxzZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiZG9jdW1lbnRfdHlwZSI6ICIiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJtYXNrIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlZhcmlhYmxlIjogIiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIlRleHRTaXplIjogIjMwIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiVGV4dENvbG9yIjogIkBjb2xvciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImNhcmRzZGF0YSI6IFtdCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICAgICAgIyBiaXJkc19saXN0ID0gewogICAgICAgICMgICAgICJjYXJkcyI6IFtdCiAgICAgICAgIyB9CiAgICAgICAgIyBfZmlsZXMgPSBqc29uLmxvYWRzKGhhc2hNYXAuZ2V0KCJfZmlsZXMiKSkKICAgICAgICAjCiAgICAgICAgIyBxdWVyeSA9IHNlbGVjdChjIGZvciBjIGluIHVpX2dsb2JhbC5TV19Hb29kcykKICAgICAgICAjIGxpc3RbImN1c3RvbWNhcmRzIl1bImNhcmRzZGF0YSJdID0gW10KICAgICAgICAjCiAgICAgICAgIyBmb3IgcmVjb3JkIGluIHF1ZXJ5OgogICAgICAgICMKICAgICAgICAjICAgICBwaWMgPSAiIgogICAgICAgICMgICAgIGlmICdwaG90bycgaW4gcmVjb3JkLnBpY3R1cmVzOgogICAgICAgICMKICAgICAgICAjICAgICAgICAgcCA9IHJlY29yZC5waWN0dXJlc1sncGhvdG8nXQogICAgICAgICMKICAgICAgICAjICAgICAgICAgaWYgbGVuKHApID4gMDoKICAgICAgICAjCiAgICAgICAgIyAgICAgICAgICAgICBmb3IgamYgaW4gX2ZpbGVzOiAgIyDQvdCw0YXQvtC00LjQvCDQv9GD0YLRjCDQuiDRhNCw0LnQu9GDINC/0L4g0LjQtNC10L3RgtC40YTQuNC60LDRgtC+0YDRgwogICAgICAgICMgICAgICAgICAgICAgICAgIGlmIGpmWydpZCddID09IHBbMF06CiAgICAgICAgIyAgICAgICAgICAgICAgICAgICAgIGlmIG9zLnBhdGguZXhpc3RzKGpmWydwYXRoJ10pOgogICAgICAgICMgICAgICAgICAgICAgICAgICAgICAgICAgcGljID0gIn4iICsgamZbJ3BhdGgnXQogICAgICAgICMgICAgICAgICAgICAgICAgICAgICBicmVhawogICAgICAgICMKICAgICAgICAjICAgICBsaXN0WyJjdXN0b21jYXJkcyJdWyJjYXJkc2RhdGEiXS5hcHBlbmQoCiAgICAgICAgIyAgICAgICAgIHsibmFtZSI6IHJlY29yZC5uYW1lLCAia2V5IjogcmVjb3JkLmlkLCAicHJvZHVjdF9udW1iZXIiOiBzdHIocmVjb3JkLnByb2R1Y3RfbnVtYmVyKSwKICAgICAgICAjICAgICAgICAgICJiYXJjb2RlIjogc3RyKHJlY29yZC5iYXJjb2RlKSwgInVuaXQiOiBzdHIocmVjb3JkLnVuaXQpLCAic2t1Z3JvdXAiOiBzdHIocmVjb3JkLmdyb3VwKSwKICAgICAgICAjICAgICAgICAgICJwcmljZSI6IHJlY29yZC5wcmljZSwgInVuaXF1ZSI6IHJlY29yZC51bmlxdWUsICJwaWN0dXJlcyI6IGpzb24uZHVtcHMocmVjb3JkLnBpY3R1cmVzKSwgInBpYyI6IHBpY30pCgogICAgICAgIGZvciBiaXJkIGluIEJpcmRSZXBvc2l0b3J5LmFsbCgpOgogICAgICAgICAgICBiaXJkc19saXN0WydjdXN0b21jYXJkcyddWydjYXJkc2RhdGEnXS5hcHBlbmQoCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImtleSI6IGJpcmQuaWQsCiAgICAgICAgICAgICAgICAgICAgIm5hbWUiOiBiaXJkLm5hbWUsCiAgICAgICAgICAgICAgICAgICAgImZlYXRoZXJfY29sb3IiOiBiaXJkLmZlYXRoZXJfY29sb3IsCiAgICAgICAgICAgICAgICAgICAgInBpYyI6ICIiLAogICAgICAgICAgICAgICAgICAgICJjb2xvciI6IENPTE9SU1tiaXJkLmZlYXRoZXJfY29sb3JdLAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApCgogICAgICAgIGhhc2hNYXAucHV0KCJiaXJkc19saXN0IiwganNvbi5kdW1wcyhiaXJkc19saXN0KSkKICAgICAgICByZXR1cm4gaGFzaE1hcAoKICAgIEBjbGFzc21ldGhvZAogICAgZGVmIG9uX2lucHV0KGNscywgaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICAgICAgbGlzdGVuZXIgPSBoYXNoTWFwLmdldCgibGlzdGVuZXIiKQogICAgICAgIGlmIGxpc3RlbmVyID09ICdPTl9CQUNLX1BSRVNTRUQnOgogICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsICJNZW51IikKICAgICAgICBlbGlmIGxpc3RlbmVyID09ICJDYXJkc0NsaWNrIjoKICAgICAgICAgICAgaGFzaE1hcC5wdXQoImJpcmRfaWQiLCBoYXNoTWFwLmdldCgic2VsZWN0ZWRfY2FyZF9rZXkiKSkKICAgICAgICAgICAgaGFzaE1hcC5wdXQoIlNob3dTY3JlZW4iLCAiRGV0YWlsIikKICAgICAgICByZXR1cm4gaGFzaE1hcAo="
+            },
+            {
+                "PyFileKey": "detail",
+                "PyFileData": "ZnJvbSBkYiBpbXBvcnQgQmlyZFJlcG9zaXRvcnksIFNlZW5BY3RSZXBvc2l0b3J5CmZyb20gYmFzZSBpbXBvcnQgQmFzZVNjcmVlbgpmcm9tIGhhc2htYXAgaW1wb3J0IEhhc2hNYXAKCgpjbGFzcyBEZXRhaWwoQmFzZVNjcmVlbik6CiAgICAiIiJEZXRhaWwgYmlyZCB2aWV3IHNjcmVlbi4iIiIKCiAgICBAY2xhc3NtZXRob2QKICAgIGRlZiBvbl9zdGFydChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgIGlmIG5vdCBoYXNoTWFwLmNvbnRhaW5zS2V5KCJiaXJkX2lkIik6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJCaXJkIGlzIG5vdCBzZWxlY3RlZCIpCiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIk1lbnUiKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIGJpcmRfaWQgPSBoYXNoTWFwLmdldCgiYmlyZF9pZCIpCiAgICAgICAgICAgIGJpcmQgPSBCaXJkUmVwb3NpdG9yeS5nZXQoYmlyZF9pZCkKICAgICAgICAgICAgaWYgYmlyZCBpcyBOb25lOgogICAgICAgICAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkJpcmQgaXMgbm90IGZvdW5kIikKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIk1lbnUiKQogICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgaGFzaE1hcC5wdXQoIm5hbWUiLCBiaXJkLm5hbWUpCiAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgiZGVzY3JpcHRpb24iLCBiaXJkLmRlc2NyaXB0aW9uKQogICAgICAgICAgICAgICAgY29sb3IgPSBmIkNvbG9yOiB7YmlyZC5mZWF0aGVyX2NvbG9yfSIKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJmZWF0aGVyX2NvbG9yIiwgY29sb3IpCiAgICAgICAgcmV0dXJuIGhhc2hNYXAKCiAgICBAY2xhc3NtZXRob2QKICAgIGRlZiBvbl9pbnB1dChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgIGxpc3RlbmVyID0gaGFzaE1hcC5nZXQoImxpc3RlbmVyIikKICAgICAgICBpZiBsaXN0ZW5lciA9PSAnT05fQkFDS19QUkVTU0VEJzoKICAgICAgICAgICAgaGFzaE1hcC5yZW1vdmUoImJpcmRfaWQiKQogICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsICJCaXJkcyIpCiAgICAgICAgZWxpZiBsaXN0ZW5lciA9PSAiYnRuX3NlZSI6CiAgICAgICAgICAgIGJpcmRfaWQgPSBoYXNoTWFwLmdldCgiYmlyZF9pZCIpCiAgICAgICAgICAgIGlmIGJpcmRfaWQgaXMgTm9uZToKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJFcnJvciB3aGlsZSBzZWVpbmciKQogICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgc2Vlbl9hY3QgPSBTZWVuQWN0UmVwb3NpdG9yeS5jcmVhdGUoYmlyZF9pZD1iaXJkX2lkKQogICAgICAgICAgICAgICAgaWYgc2Vlbl9hY3QgaXMgTm9uZToKICAgICAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCAiRXJyb3Igd2hpbGUgc2VlaW5nIikKICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkJpcmQgaXMgbWFya2VkIGFzIHNlZW4hIikKICAgICAgICByZXR1cm4gaGFzaE1hcAo="
+            },
+            {
+                "PyFileKey": "menu",
+                "PyFileData": "ZnJvbSBiYXNlIGltcG9ydCBCYXNlU2NyZWVuCmZyb20gaGFzaG1hcCBpbXBvcnQgSGFzaE1hcAoKCmNsYXNzIE1lbnUoQmFzZVNjcmVlbik6CiAgICAiIiJNZW51IHNjcmVlbiBjbGFzcy4iIiIKCiAgICBAY2xhc3NtZXRob2QKICAgIGRlZiBvbl9zdGFydChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgIHJldHVybiBoYXNoTWFwCgogICAgQGNsYXNzbWV0aG9kCiAgICBkZWYgb25faW5wdXQoY2xzLCBoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgICAgICBsaXN0ZW5lciA9IGhhc2hNYXAuZ2V0KCJsaXN0ZW5lciIpCiAgICAgICAgaWYgbGlzdGVuZXIgPT0gIm1lbnUiOgogICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsIGhhc2hNYXAuZ2V0KCJtZW51IikpCiAgICAgICAgaWYgbGlzdGVuZXIgPT0gIk9OX0JBQ0tfUFJFU1NFRCI6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJGaW5pc2hQcm9jZXNzIiwgIiIpCiAgICAgICAgcmV0dXJuIGhhc2hNYXAK"
+            },
+            {
+                "PyFileKey": "add",
+                "PyFileData": "aW1wb3J0IGpzb24KZnJvbSB0eXBpbmcgaW1wb3J0IFR1cGxlCgpmcm9tIGRiIGltcG9ydCBCaXJkUmVwb3NpdG9yeSwgQ09MT1JTCmZyb20gYmFzZSBpbXBvcnQgQmFzZVNjcmVlbgpmcm9tIGhhc2htYXAgaW1wb3J0IEhhc2hNYXAKCgpkZWYgc2F2ZV9iaXJkKGhhc2hNYXA6IEhhc2hNYXApIC0+IFR1cGxlW0hhc2hNYXAsIGJvb2xdOgogICAgIiIiRnVuY3Rpb24gZm9yIHNhdmluZyBiaXJkIHRvIHRoZSBkYXRhYmFzZS4iIiIKICAgIGlmIG5vdCBoYXNoTWFwLmNvbnRhaW5zS2V5KCJuYW1lIik6CiAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIk5hbWUgaXMgdW5maWxsZWQiKQogICAgICAgIHJldHVybiBoYXNoTWFwLCBGYWxzZQogICAgZWxzZToKICAgICAgICBuYW1lID0gaGFzaE1hcC5nZXQoIm5hbWUiKQogICAgICAgIGlmIGxlbihuYW1lKSA9PSAwOgogICAgICAgICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCAiTmFtZSBpcyB1bmZpbGxlZCIpCiAgICAgICAgICAgIHJldHVybiBoYXNoTWFwLCBGYWxzZQoKICAgIGlmIG5vdCBoYXNoTWFwLmNvbnRhaW5zS2V5KCJkZXNjcmlwdGlvbiIpOgogICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsICJEZXNjcmlwdGlvbiBpcyB1bmZpbGxlZCIpCiAgICAgICAgcmV0dXJuIGhhc2hNYXAsIEZhbHNlCiAgICBlbHNlOgogICAgICAgIGRlc2NyaXB0aW9uID0gaGFzaE1hcC5nZXQoImRlc2NyaXB0aW9uIikKICAgICAgICBpZiBsZW4obmFtZSkgPT0gMDoKICAgICAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkRlc2NyaXB0aW9uIGlzIHVuZmlsbGVkIikKICAgICAgICAgICAgcmV0dXJuIGhhc2hNYXAsIEZhbHNlCgogICAgaWYgbm90IGhhc2hNYXAuY29udGFpbnNLZXkoImNvbG9yIik6CiAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkNvbG9yIGlzIHVuZmlsbGVkIikKICAgICAgICByZXR1cm4gaGFzaE1hcCwgRmFsc2UKICAgIGVsc2U6CiAgICAgICAgY29sb3IgPSBoYXNoTWFwLmdldCgiY29sb3IiKQogICAgICAgIGlmIGxlbihjb2xvcikgPT0gMDoKICAgICAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkNvbG9yIGlzIHVuZmlsbGVkIikKICAgICAgICAgICAgcmV0dXJuIGhhc2hNYXAsIEZhbHNlCgogICAgYmlyZCA9IEJpcmRSZXBvc2l0b3J5LmNyZWF0ZSgKICAgICAgICBuYW1lPW5hbWUsCiAgICAgICAgZmVhdGhlcl9jb2xvcj1jb2xvciwKICAgICAgICBkZXNjcmlwdGlvbj1kZXNjcmlwdGlvbiwKCiAgICApCiAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCAiQmlyZCBzYXZlZCEiKQogICAgcmV0dXJuIGhhc2hNYXAsIFRydWUKCgpjbGFzcyBBZGQoQmFzZVNjcmVlbik6CiAgICAiIiJBZGRpbmcgYmlyZCBzY3JlZW4uIiIiCgogICAgQGNsYXNzbWV0aG9kCiAgICBkZWYgb25fc3RhcnQoY2xzLCBoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgICAgICBoYXNoTWFwLnB1dCgibW1fbG9jYWwiLCAiIikKICAgICAgICBoYXNoTWFwLnB1dCgibW1fY29tcHJlc3Npb24iLCAiNzAiKQogICAgICAgIGhhc2hNYXAucHV0KCJtbV9zaXplIiwgIjY1IikKICAgICAgICBoYXNoTWFwLnB1dCgiZmlsbF9uYW1lIiwganNvbi5kdW1wcyh7ImhpbnQiOiAiQmlyZGBzIG5hbWUifSkpCiAgICAgICAgaGFzaE1hcC5wdXQoImNvbG9ycyIsICI7Ii5qb2luKENPTE9SUykpCiAgICAgICAgcmV0dXJuIGhhc2hNYXAKCiAgICBAY2xhc3NtZXRob2QKICAgIGRlZiBvbl9pbnB1dChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgIGxpc3RlbmVyID0gaGFzaE1hcC5nZXQoImxpc3RlbmVyIikKICAgICAgICBpZiBsaXN0ZW5lciA9PSAiYnRuX3NhdmUiOgogICAgICAgICAgICBoYXNoTWFwLCBpc19zdWNjZXNzID0gc2F2ZV9iaXJkKGhhc2hNYXApCiAgICAgICAgICAgIGlmIGlzX3N1Y2Nlc3M6CiAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsICJNZW51IikKCiAgICAgICAgZWxpZiBsaXN0ZW5lciA9PSAiQ2FyZHNDbGljayI6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJ0b2FzdCIsIHN0cihoYXNoTWFwLmdldCgic2VsZWN0ZWRfY2FyZF9rZXkiKSkpCgogICAgICAgIGVsaWYgbGlzdGVuZXIgPT0gJ09OX0JBQ0tfUFJFU1NFRCc6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIk1lbnUiKQoKICAgICAgICBlbGlmIGxpc3RlbmVyID09ICdtZW51X2RlbCc6CiAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIk1lbnUiKQogICAgICAgICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCAiRGVsZXRlZC4uLiIpCgogICAgICAgIGVsaWYgbGlzdGVuZXIgPT0gInBob3RvIjoKCiAgICAgICAgICAgICMg0JzQvtC20L3QviDQstC+0L7QsdGJ0LUg0Y3RgtC+0LPQviDQvdC1INC00LXQu9Cw0YLRjC3QvtGB0YLQsNCy0LvRj9GC0Ywg0LrQsNC6INC10YHRgtGMLiDQrdGC0L4g0LTQu9GPINC/0YDQuNC80LXRgNCwLgogICAgICAgICAgICBpbWFnZV9maWxlID0gc3RyKAogICAgICAgICAgICAgICAgaGFzaE1hcC5nZXQoInBob3RvX3BhdGgiKSkgICMgItC/0LXRgNC10LzQtdC90L3QsNGPIisiX3BhdGgiIC0g0YHRjtC00LAg0L/QvtC80LXRidCw0LXRgtGB0Y8g0L/Rg9GC0Ywg0Log0L/QvtC70YPRh9C10L3QvdC+0Lkg0YTQvtGC0L7Qs9GA0LDRhNC40LgKICAgICAgICAgICAgIyBoYXNoTWFwLnB1dCgidG9hc3QiLHN0cihoYXNoTWFwLmdldCgicGhvdG9fcGF0aCIpKSkKCiAgICAgICAgICAgICMg0YHRgNCw0LfRgyDRgdC00LXQu9Cw0LXQvCDRhNC+0YLQutGDIC0g0LrQstCw0LTRgNCw0YLQvdC+0LkgLSDRjdGC0L4g0L/RgNC+0YHRgtC+0Lkg0LLQsNGA0LjQsNC90YIuINCc0L7QttC90L4g0YHQtNC10LvQsNGC0Ywg0L3QsNC/0YDQuNC80LXRgCDQvtGC0LTQtdC70YzQviDQvNC40L3QuNCw0YLRjtGA0Ysg0LTQu9GPINGB0L/QuNGB0LrQsCwg0Y3RgtC+INC90LXQvNC90L7Qs9C+INGB0LvQvtC20L3QtdC1CgogICAgICAgICAgICBqcGhvdG9hcnIgPSBqc29uLmxvYWRzKGhhc2hNYXAuZ2V0KCJwaG90b0dhbGxlcnkiKSkKICAgICAgICAgICAgaGFzaE1hcC5wdXQoInBob3RvR2FsbGVyeSIsIGpzb24uZHVtcHMoanBob3RvYXJyKSkKICAgICAgICAgICAgIyBoYXNoTWFwLnB1dCgidG9hc3QiLGpzb24uZHVtcHMoanBob3RvYXJyKSkKCiAgICAgICAgZWxpZiBsaXN0ZW5lciA9PSAiZ2FsbGVyeV9jaGFuZ2UiOiAgIyDQv9C+0LvRjNC30L7QstCw0YLQtdC70Ywg0LzQvtC20LXRgiDRg9C00LDQu9C40YLRjCDRhNC+0YLQviDQuNC3INCz0LDQu9C10YDQtdC4LiDQndC+0LLRi9C5INC80LDRgdGB0LjQsiDQvdCw0LTQviDQv9C+0LzQtdGB0YLQuNGC0Ywg0Log0LTQvtC60YPQvNC10L3RgtGDCgogICAgICAgICAgICBpZiBoYXNoTWFwLmNvbnRhaW5zS2V5KCJwaG90b0dhbGxlcnkiKTogICMg0Y3RgtC4IDIg0L7QsdGA0LDQsdC+0YLRh9C40LrQsCAtINCw0L3QsNC70L7Qs9C40YfQvdGL0LUsINC/0YDQvtGB0YLQviDQtNC70Y8g0YDQsNC30L3Ri9GFINGB0L7QsdGL0YLQuNC5CiAgICAgICAgICAgICAgICBqcGhvdG9hcnIgPSBqc29uLmxvYWRzKGhhc2hNYXAuZ2V0KCJwaG90b0dhbGxlcnkiKSkKICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJwaG90b0dhbGxlcnkiLCBqc29uLmR1bXBzKGpwaG90b2FycikpCiAgICAgICAgICAgICAgICAjIGhhc2hNYXAucHV0KCJ0b2FzdCIsIiMyIitqc29uLmR1bXBzKGpwaG90b2FycikpCgogICAgICAgIHJldHVybiBoYXNoTWFwCg=="
+            },
+            {
+                "PyFileKey": "base",
+                "PyFileData": "ZnJvbSBhYmMgaW1wb3J0IEFCQywgYWJzdHJhY3RtZXRob2QKZnJvbSB0eXBpbmcgaW1wb3J0IFR5cGUKZnJvbSBwb255Lm9ybSBpbXBvcnQgRGF0YWJhc2UsIGRiX3Nlc3Npb24KZnJvbSBwb255Lm9ybS5jb3JlIGltcG9ydCBFbnRpdHksIEVudGl0eU1ldGEKCmZyb20gaGFzaG1hcCBpbXBvcnQgSGFzaE1hcAoKCmNsYXNzIEJhc2VTY3JlZW4oQUJDKToKICAgICIiIgogICAgQmFzZSBzY3JlZW4gaGFuZGxlciBlbmNhcHN1bGF0aW9uIGNsYXNzLiBNZXRob2RzIGFyZSB0byBiZSBpbXBsZW1lbnRlZC4KICAgICIiIgogICAgQGNsYXNzbWV0aG9kCiAgICBAYWJzdHJhY3RtZXRob2QKICAgIGRlZiBvbl9pbnB1dChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgICIiIklucHV0IGV2ZW50IGhhbmRsZXIuIiIiCiAgICAgICAgcGFzcwoKICAgIEBjbGFzc21ldGhvZAogICAgQGFic3RyYWN0bWV0aG9kCiAgICBkZWYgb25fc3RhcnQoY2xzLCBoYXNoTWFwOiBIYXNoTWFwLCBfZmlsZXM9Tm9uZSwgX2RhdGE9Tm9uZSkgLT4gSGFzaE1hcDoKICAgICAgICAiIiJTdGFydCBzY3JlZSBldmVudCBoYW5kbGVyLiIiIgogICAgICAgIHBhc3MKCgpjbGFzcyBCYXNlUmVwb3NpdG9yeShBQkMpOgogICAgIiIiQmFzZSByZXBvc2l0b3J5IGNsYXNzLiIiIgogICAgZW50aXR5OiBFbnRpdHlNZXRhCgogICAgQGNsYXNzbWV0aG9kCiAgICBAYWJzdHJhY3RtZXRob2QKICAgIGRlZiBjcmVhdGUoY2xzLCBiaXJkX2lkOiBzdHIpOgogICAgICAgIHBhc3MKCiAgICBAY2xhc3NtZXRob2QKICAgIEBkYl9zZXNzaW9uCiAgICBkZWYgYWxsKGNscyk6CiAgICAgICAgcmV0dXJuIGNscy5lbnRpdHkuc2VsZWN0KCkKCiAgICBAY2xhc3NtZXRob2QKICAgIEBkYl9zZXNzaW9uCiAgICBkZWYgZ2V0KGNscywgaWRfOiBzdHIpOgogICAgICAgIG9iaiA9IGNscy5lbnRpdHkuZ2V0KGlkPWlkXykKICAgICAgICByZXR1cm4gb2JqCg=="
+            },
+            {
+                "PyFileKey": "seen",
+                "PyFileData": "aW1wb3J0IGRhdGV0aW1lCmltcG9ydCBqc29uCgpmcm9tIGRiIGltcG9ydCBTZWVuQWN0UmVwb3NpdG9yeQpmcm9tIGhhc2htYXAgaW1wb3J0IEhhc2hNYXAKZnJvbSBiYXNlIGltcG9ydCBCYXNlU2NyZWVuCgoKY2xhc3MgU2VlbihCYXNlU2NyZWVuKToKCiAgICBAY2xhc3NtZXRob2QKICAgIGRlZiBvbl9zdGFydChjbHMsIGhhc2hNYXA6IEhhc2hNYXAsIF9maWxlcz1Ob25lLCBfZGF0YT1Ob25lKSAtPiBIYXNoTWFwOgogICAgICAgIHRhYmxlID0gewogICAgICAgICAgICAidHlwZSI6ICJ0YWJsZSIsCiAgICAgICAgICAgICJ0ZXh0c2l6ZSI6ICIxOCIsCiAgICAgICAgICAgICJjb2x1bW5zIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJuYW1lIjogImJpcmQiLAogICAgICAgICAgICAgICAgICAgICJoZWFkZXIiOiAiQmlyZCIsCiAgICAgICAgICAgICAgICAgICAgIndlaWdodCI6ICIxIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAibmFtZSI6ICJ0aW1lX3NlZW4iLAogICAgICAgICAgICAgICAgICAgICJoZWFkZXIiOiAiTGFzdCBUaW1lIiwKICAgICAgICAgICAgICAgICAgICAid2VpZ2h0IjogIjIiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICJuYW1lIjogImFtb3VudCIsCiAgICAgICAgICAgICAgICAgICAgImhlYWRlciI6ICJBbW91bnQiLAogICAgICAgICAgICAgICAgICAgICJ3ZWlnaHQiOiAiMyIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0KICAgICAgICB9CiAgICAgICAgIyB3b3JrIHdpdGggU1FMIHZpYSBQb255IE9STQogICAgICAgIHF1ZXJ5ID0gU2VlbkFjdFJlcG9zaXRvcnkuYWxsKCkub3JkZXJfYnkoInRpbWVfc2VlbiIpCiAgICAgICAgcm93cyA9IHt9CgogICAgICAgIGZvciByZWNvcmQgaW4gcXVlcnk6CiAgICAgICAgICAgIGlmIHJlY29yZC5iaXJkLm5hbWUgaW4gcm93czoKICAgICAgICAgICAgICAgIHJvd3NbcmVjb3JkLmJpcmQubmFtZV0udXBkYXRlKAogICAgICAgICAgICAgICAgICAgIHRpbWVfc2Vlbj1yZWNvcmQudGltZV9zZWVuLnN0cmZ0aW1lKCIlSDolTSAtICVtLiVkLiVZIiksCiAgICAgICAgICAgICAgICAgICAgYW1vdW50PXJvd3NbcmVjb3JkLmJpcmQubmFtZV1bJ2Ftb3VudCddICsgMQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgcm93c1tyZWNvcmQuYmlyZC5uYW1lXSA9ICgKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICJiaXJkIjogcmVjb3JkLmJpcmQubmFtZSwKICAgICAgICAgICAgICAgICAgICAgICAgImlkIjogcmVjb3JkLmlkLAogICAgICAgICAgICAgICAgICAgICAgICAidGltZV9zZWVuIjogcmVjb3JkLnRpbWVfc2Vlbi5zdHJmdGltZSgiJUg6JU0gLSAlbS4lZC4lWSIpLAogICAgICAgICAgICAgICAgICAgICAgICAiYW1vdW50IjogMQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICkKICAgICAgICB0YWJsZVsncm93cyddID0gbGlzdChyb3dzLnZhbHVlcygpKQogICAgICAgIGhhc2hNYXAucHV0KCJzZWVuX2xpc3QiLCBqc29uLmR1bXBzKHRhYmxlKSkKICAgICAgICByZXR1cm4gaGFzaE1hcAoKICAgIEBjbGFzc21ldGhvZAogICAgZGVmIG9uX2lucHV0KGNscywgaGFzaE1hcDogSGFzaE1hcCwgX2ZpbGVzPU5vbmUsIF9kYXRhPU5vbmUpIC0+IEhhc2hNYXA6CiAgICAgICAgbGlzdGVuZXIgPSBoYXNoTWFwLmdldCgibGlzdGVuZXIiKQogICAgICAgIGlmIGxpc3RlbmVyID09ICdPTl9CQUNLX1BSRVNTRUQnOgogICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsICJNZW51IikKICAgICAgICBlbGlmIGxpc3RlbmVyID09ICJidG5fYWRkIjoKICAgICAgICAgICAgYmlyZF9zZWxlY3RlZF9pZCA9IGhhc2hNYXAuZ2V0KCJiaXJkX3NlbGVjdGVkX2lkIikKICAgICAgICAgICAgaWYgYmlyZF9zZWxlY3RlZF9pZCBpcyBOb25lOgogICAgICAgICAgICAgICAgaGFzaE1hcC5wdXQoInRvYXN0IiwgIkJpcmQgdG8gc2VlIGlzIG5vdCBzZWxlY3RlZCIpCiAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgiU2hvd1NjcmVlbiIsICJCaXJkcyIpCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBzZWVuX2FjdCA9IFNlZW5BY3RSZXBvc2l0b3J5LmNyZWF0ZShiaXJkX3NlbGVjdGVkX2lkKQogICAgICAgICAgICAgICAgaWYgc2Vlbl9hY3QgaXMgTm9uZToKICAgICAgICAgICAgICAgICAgICBoYXNoTWFwLnB1dCgidG9hc3QiLCAiRXJyb3Igd2hpbGUgbWFraW5nIG5ldyBzZWVuIGFjdCIpCiAgICAgICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgICAgIGhhc2hNYXAucHV0KCJTaG93U2NyZWVuIiwgIlNlZW4iKQogICAgICAgIHJldHVybiBoYXNoTWFwCg=="
+            }
+        ],
+        "PyTimerTask": [
+            {
+                "PyTimerTaskKey": "on_start",
+                "PyTimerTaskDef": "init_on_start",
+                "PyTimerTaskPeriod": "-1",
+                "PyTimerTaskBuilIn": false
+            }
+        ],
+        "RecognitionTemplates": [
+            {
+                "name": "Распознавание артикула",
+                "TypeRecognition": "Распознавание текста",
+                "mesure_qty": "1",
+                "min_freq": "1",
+                "min_length": "3",
+                "max_length": "15",
+                "query": "c2VsZWN0ICogZnJvbSBTV19Hb29kcyB3aGVyZSBwcm9kdWN0X251bWJlciBsaWtlICA/",
+                "ReplaceO": true,
+                "ToUpcase": false,
+                "control_field": "product_number",
+                "result_field": "id",
+                "cursor": [
+                    {
+                        "title": "id",
+                        "var": "nom_id",
+                        "field": "id"
+                    }
+                ],
+                "result_var": "nom_id"
+            }
+        ]
+    }
+}
