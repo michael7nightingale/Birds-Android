@@ -1,4 +1,4 @@
-from db import BirdRepository
+from db import BirdRepository, SeenActRepository
 from base import BaseScreen
 from hashmap import HashMap
 
@@ -30,4 +30,14 @@ class Detail(BaseScreen):
         if listener == 'ON_BACK_PRESSED':
             hashMap.remove("bird_id")
             hashMap.put("ShowScreen", "Birds")
+        elif listener == "btn_see":
+            bird_id = hashMap.get("bird_id")
+            if bird_id is None:
+                hashMap.put("toast", "Error while seeing")
+            else:
+                seen_act = SeenActRepository.create(bird_id=bird_id)
+                if seen_act is None:
+                    hashMap.put("toast", "Error while seeing")
+                else:
+                    hashMap.put("toast", "Bird is marked as seen!")
         return hashMap
