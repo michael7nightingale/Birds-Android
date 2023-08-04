@@ -3,6 +3,7 @@ from birds import Birds
 from detail import Detail
 from add import Add
 from hashmap import HashMap
+from seen import Seen
 
 
 # main menu
@@ -39,3 +40,12 @@ def bird_detail_on_start(hashMap: HashMap, _files=None, _data=None) -> HashMap:
 
 def bird_detail_on_input(hashMap: HashMap, _files=None, _data=None) -> HashMap:
     return Detail.on_input(hashMap, _files, _data)
+
+
+# seen birds list
+def seen_on_start(hashMap: HashMap, _files=None, _data=None) -> HashMap:
+    return Seen.on_start(hashMap, _files, _data)
+
+
+def seen_on_input(hashMap: HashMap, _files=None, _data=None) -> HashMap:
+    return Seen.on_input(hashMap, _files, _data)
