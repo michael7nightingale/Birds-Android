@@ -1,7 +1,7 @@
 # Birds android application (Job test task)
 
 This is the Python configuration for `Simple UI` framework. The business task is to create the process (application)
-for managing the list of birds, their cards and your own seen list.
+for managing the list of birds, their cards and your own seen list. I choose the most comfortable DB structure.
 
 
 ## Stack
@@ -27,8 +27,16 @@ python simple_editor.py
 
 Then you shall see two url in the terminal, you need the last one
 (http://192.168.2.36:5000 for me).
+![img.png](files/img.png)
 
-![img.png](files/img.png)Link it 
+Then open your configuration file.
+![img.png](files/screen2.png)
+
 
 
 ### 2) APK.
+Download APK file from https://disk.yandex.ru/d/wP07qs_nHARe0A. Install it on you mobile app, go to the settings and type into your configuration url.
+<img alt="img.png" src="files/screen1.jpg" width="300"/>
+<img alt="img.png" src="files/screen2.jpg" width="300"/> 
+
+Reload your application and use it!
