@@ -35,11 +35,20 @@ def save_bird(hashMap: HashMap) -> Tuple[HashMap, bool]:
             hashMap.put("toast", "Color is unfilled")
             return hashMap, False
 
+    if not hashMap.containsKey("photo_path"):
+        hashMap.put("toast", "Picture is required")
+        return hashMap, False
+    else:
+        photo_path = hashMap.get("photo_path")
+        if len(photo_path) == 0:
+            hashMap.put("toast", "Picture is required")
+            return hashMap, False
+
     bird = BirdRepository.create(
         name=name,
         feather_color=color,
         description=description,
-
+        picture=photo_path
     )
     hashMap.put("toast", "Bird saved!")
     return hashMap, True
@@ -65,9 +74,6 @@ class Add(BaseScreen):
             if is_success:
                 hashMap.put("ShowScreen", "Menu")
 
-        elif listener == "CardsClick":
-            hashMap.put("toast", str(hashMap.get("selected_card_key")))
-
         elif listener == 'ON_BACK_PRESSED':
             hashMap.put("ShowScreen", "Menu")
 
@@ -76,23 +82,11 @@ class Add(BaseScreen):
             hashMap.put("toast", "Deleted...")
 
         elif listener == "photo":
+            hashMap.put("description", hashMap.get("description"))
+            hashMap.put("toast", str(hashMap.get("photo_path")))
 
-            # Можно вообще этого не делать-оставлять как есть. Это для примера.
-            image_file = str(
-                hashMap.get("photo_path"))  # "переменная"+"_path" - сюда помещается путь к полученной фотографии
-            # hashMap.put("toast",str(hashMap.get("photo_path")))
-
-            # сразу сделаем фотку - квадратной - это простой вариант. Можно сделать например отдельо миниатюры для списка, это немного сложнее
-
-            jphotoarr = json.loads(hashMap.get("photoGallery"))
-            hashMap.put("photoGallery", json.dumps(jphotoarr))
-            # hashMap.put("toast",json.dumps(jphotoarr))
-
-        elif listener == "gallery_change":  # пользователь может удалить фото из галереи. Новый массив надо поместить к документу
-
-            if hashMap.containsKey("photoGallery"):  # эти 2 обработчика - аналогичные, просто для разных событий
-                jphotoarr = json.loads(hashMap.get("photoGallery"))
-                hashMap.put("photoGallery", json.dumps(jphotoarr))
-                # hashMap.put("toast","#2"+json.dumps(jphotoarr))
+        elif listener == "gallery_change":
+            hashMap.put("description", hashMap.get("description"))
+            hashMap.put("toast", str(hashMap.get("photo_path")))
 
         return hashMap
