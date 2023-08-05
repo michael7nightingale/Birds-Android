@@ -19,6 +19,7 @@ class Detail(BaseScreen):
                 hashMap.put("ShowScreen", "Menu")
             else:
                 hashMap.put("name", bird.name)
+                hashMap.put("picture", f"~{bird.picture}")
                 hashMap.put("description", bird.description)
                 color = f"Color: {bird.feather_color}"
                 hashMap.put("feather_color", color)
