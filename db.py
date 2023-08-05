@@ -1,5 +1,5 @@
 from datetime import datetime
-from pony.orm import Database, Required, PrimaryKey, commit, db_session, Optional, Set
+from pony.orm import Database, Required, PrimaryKey, commit, db_session, Set
 from typing import Type
 from uuid import uuid4
 
@@ -26,7 +26,7 @@ class Bird(db.Entity):
     description = Required(str)
     feather_color = Required(str)
     seen_acts = Set("SeenAct")
-    # picture = Optional(str)
+    picture = Required(str)     # represents file path
 
 
 class BirdRepository(BaseRepository):
@@ -40,13 +40,14 @@ class BirdRepository(BaseRepository):
             name=name,
             feather_color=feather_color,
             description=description,
-
+            picture=picture
         )
         commit()
         return bird
 
 
 class SeenAct(db.Entity):
+    """Seen act model."""
     id = PrimaryKey(str, default=lambda: str(uuid4()))
     bird = Required(Bird)
     time_seen = Required(datetime, default=lambda: datetime.now())
@@ -70,5 +71,5 @@ class SeenActRepository(BaseRepository):
 
 
 # bing engine and create schemas
-db.bind('sqlite', 'db3.sqlite', create_db=True)
+db.bind('sqlite', 'db4.sqlite', create_db=True)
 db.generate_mapping(create_tables=True)

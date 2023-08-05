@@ -1,7 +1,11 @@
+"""
+Base classes (ABC interfaces) file to make contract with inherits for implementing
+necessary methods.
+"""
+
 from abc import ABC, abstractmethod
-from typing import Type
-from pony.orm import Database, db_session
-from pony.orm.core import Entity, EntityMeta
+from pony.orm import db_session
+from pony.orm.core import EntityMeta
 
 from hashmap import HashMap
 
@@ -9,6 +13,8 @@ from hashmap import HashMap
 class BaseScreen(ABC):
     """
     Base screen handler encapsulation class. Methods are to be implemented.
+    There is no instance methods because objects are not created.
+    Just encapsulates screen logic.
     """
     @classmethod
     @abstractmethod
@@ -24,7 +30,9 @@ class BaseScreen(ABC):
 
 
 class BaseRepository(ABC):
-    """Base repository class."""
+    """
+    Base repository class. Defines the simplest data access operations.
+    """
     entity: EntityMeta
 
     @classmethod
