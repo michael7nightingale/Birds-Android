@@ -1,4 +1,3 @@
-import datetime
 import json
 
 from db import SeenActRepository
@@ -7,6 +6,7 @@ from base import BaseScreen
 
 
 class Seen(BaseScreen):
+    """Seen birds list screen."""
 
     @classmethod
     def on_start(cls, hashMap: HashMap, _files=None, _data=None) -> HashMap:
@@ -17,7 +17,7 @@ class Seen(BaseScreen):
                 {
                     "name": "bird",
                     "header": "Bird",
-                    "weight": "1"
+                    "weight": "2"
                 },
                 {
                     "name": "time_seen",
@@ -27,22 +27,22 @@ class Seen(BaseScreen):
                 {
                     "name": "amount",
                     "header": "Amount",
-                    "weight": "3"
+                    "weight": "1"
                 },
             ]
         }
-        # work with SQL via Pony ORM
         query = SeenActRepository.all()
         rows = {}
-
+        # here we go through all records and count amount of each bird seen act in O(N)
+        # we remind the last time seen the bird, queryset is already ordered by time
         for record in query:
-            if record.bird.name in rows:
-                rows[record.bird.name].update(
+            if record.bird.id in rows:
+                rows[record.bird.id].update(
                     time_seen=record.time_seen.strftime("%H:%M - %m.%d.%Y"),
-                    amount=rows[record.bird.name]['amount'] + 1
+                    amount=rows[record.bird.id]['amount'] + 1
                 )
             else:
-                rows[record.bird.name] = (
+                rows[record.bird.id] = (
                     {
                         "bird": record.bird.name,
                         "id": record.id,
@@ -59,15 +59,4 @@ class Seen(BaseScreen):
         listener = hashMap.get("listener")
         if listener == 'ON_BACK_PRESSED':
             hashMap.put("ShowScreen", "Menu")
-        elif listener == "btn_add":
-            bird_selected_id = hashMap.get("bird_selected_id")
-            if bird_selected_id is None:
-                hashMap.put("toast", "Bird to see is not selected")
-                hashMap.put("ShowScreen", "Birds")
-            else:
-                seen_act = SeenActRepository.create(bird_selected_id)
-                if seen_act is None:
-                    hashMap.put("toast", "Error while making new seen act")
-                else:
-                    hashMap.put("ShowScreen", "Seen")
         return hashMap
