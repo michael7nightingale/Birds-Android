@@ -1,6 +1,6 @@
 import json
 
-from db import BirdRepository, COLORS, SeenActRepository
+from db import BirdRepository, COLORS
 from hashmap import HashMap
 
 
@@ -32,7 +32,7 @@ class Birds:
                                 {
                                     "type": "Picture",
                                     "show_by_condition": "",
-                                    "Value": "@pic",
+                                    "Value": "@picture",
                                     "NoRefresh": False,
                                     "document_type": "",
                                     "mask": "",
@@ -61,7 +61,7 @@ class Birds:
                                             "document_type": "",
                                             "mask": "",
                                             "Variable": "",
-                                            "TextSize": "20"
+                                            "TextSize": "30"
                                         },
                                         {
                                             "type": "TextView",
@@ -71,7 +71,7 @@ class Birds:
                                             "document_type": "",
                                             "mask": "",
                                             "Variable": "",
-                                            "TextSize": "30",
+                                            "TextSize": "18",
                                             "TextColor": "@color"
                                         },
                                     ]
@@ -83,41 +83,14 @@ class Birds:
                 "cardsdata": []
             }
         }
-        # birds_list = {
-        #     "cards": []
-        # }
-        # _files = json.loads(hashMap.get("_files"))
-        #
-        # query = select(c for c in ui_global.SW_Goods)
-        # list["customcards"]["cardsdata"] = []
-        #
-        # for record in query:
-        #
-        #     pic = ""
-        #     if 'photo' in record.pictures:
-        #
-        #         p = record.pictures['photo']
-        #
-        #         if len(p) > 0:
-        #
-        #             for jf in _files:  # находим путь к файлу по идентификатору
-        #                 if jf['id'] == p[0]:
-        #                     if os.path.exists(jf['path']):
-        #                         pic = "~" + jf['path']
-        #                     break
-        #
-        #     list["customcards"]["cardsdata"].append(
-        #         {"name": record.name, "key": record.id, "product_number": str(record.product_number),
-        #          "barcode": str(record.barcode), "unit": str(record.unit), "skugroup": str(record.group),
-        #          "price": record.price, "unique": record.unique, "pictures": json.dumps(record.pictures), "pic": pic})
 
         for bird in BirdRepository.all():
             birds_list['customcards']['cardsdata'].append(
                 {
-                    "key": bird.id,
-                    "name": bird.name,
-                    "feather_color": bird.feather_color,
-                    "pic": "",
+                    "key": bird.id,     # needed on CardsClick event
+                    "name": f"Name: {bird.name}",
+                    "feather_color": f"Feather color: {bird.feather_color}",
+                    "picture": f"~{bird.picture}",
                     "color": COLORS[bird.feather_color],
                 }
             )
