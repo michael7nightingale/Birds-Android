@@ -1,3 +1,7 @@
+"""
+Simple handlers file. Is to be encoded and no more, because main changes happen in screens classes,
+which are called in handlers, so you just need to update files in `Python files` in constructor.
+"""
 from menu import Menu
 from birds import Birds
 from detail import Detail
