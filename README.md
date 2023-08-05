@@ -36,7 +36,8 @@ Then open your configuration file.
 
 ### 2) APK.
 Download APK file from https://disk.yandex.ru/d/wP07qs_nHARe0A. Install it on you mobile app, go to the settings and type into your configuration url.
-<img alt="img.png" src="files/screen1.jpg" width="300"/>
-<img alt="img.png" src="files/screen2.jpg" width="300"/> 
+
+<img alt="img.png" src="files/screen1.jpg" width="400"/>
+<img alt="img.png" src="files/screen2.jpg" width="400"/> 
 
 Reload your application and use it!
